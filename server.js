@@ -1,8 +1,8 @@
 const dotenv = require("dotenv");
 const express = require("express");
 const cors = require("cors");
-const connetDB = require("./db");
-const recipeRoutes = require("../routes/recipeRoutes");
+const connetDB = require("./config/db");
+const recipeRoutes = require("./routes/recipeRoutes");
 
 dotenv.config();
 
