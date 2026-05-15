@@ -1,0 +1,228 @@
+{
+  "info": {
+    "_postman_id": "8a83652c-8204-44de-8ed2-65a8f5eae029",
+    "name": "RecipesAPI",
+    "description": "# Create Recipe API\n\n## Endpoint\n\nPOST /api/recipes\n\n## Description\n\n**This API creates a new recipe and stores it in MongoDB.**\n\n## Request Body\n\n``` json\n{\n  \"title\": \"Paneer Butter Masala\",\n  \"ingredients\": [\"Paneer\", \"Butter\", \"Tomato\"],\n  \"instructions\": \"Cook all ingredients together\",\n  \"cookingTime\": 30\n}\n\n ```\n\n## Success Response\n\n``` json\n{\n  \"success\": true,\n  \"message\": \"Recipe created successfully\",\n  \"data\": {\n    \"_id\": \"6825abcd123456789\",\n    \"title\": \"Paneer Butter Masala\",\n    \"ingredients\": [\"Paneer\", \"Butter\", \"Tomato\"],\n    \"instructions\": \"Cook all ingredients together\",\n    \"cookingTime\": 30\n  }\n}\n\n ```\n\n## Error Response\n\n``` json\n{\n  \"success\": false,\n  \"message\": \"Recipe title is required\"\n}\n\n ```\n\n# Get All Recipes API\n\n## Endpoint\n\nGET /api/recipes\n\n## Description\n\nThis API retrieves all recipes stored in MongoDB.\n\n## Success Response\n\n``` json\n{\n  \"success\": true,\n  \"count\": 2,\n  \"data\": [\n    {\n      \"_id\": \"6825abcd123456789\",\n      \"title\": \"Paneer Butter Masala\",\n      \"ingredients\": [\"Paneer\", \"Butter\", \"Tomato\"],\n      \"instructions\": \"Cook all ingredients together\",\n      \"cookingTime\": 30\n    },\n    {\n      \"_id\": \"6825efgh987654321\",\n      \"title\": \"Veg Biryani\",\n      \"ingredients\": [\"Rice\", \"Vegetables\", \"Spices\"],\n      \"instructions\": \"Cook rice with vegetables and spices\",\n      \"cookingTime\": 45\n    }\n  ]\n}\n\n ```\n\n## Error Response\n\n``` json\n{\n  \"success\": false,\n  \"message\": \"Internal server error\"\n}\n\n ```\n\n# Get Recipe By ID API\n\n## Endpoint\n\nGET /api/recipes/:id\n\n## Description\n\nThis API retrieves a single recipe using its MongoDB ObjectId.\n\n## Example URL\n\n``` bash\nGET /api/recipes/6825abcd123456789\n\n ```\n\n## Success Response\n\n``` json\n{\n  \"success\": true,\n  \"data\": {\n    \"_id\": \"6825abcd123456789\",\n    \"title\": \"Paneer Butter Masala\",\n    \"ingredients\": [\"Paneer\", \"Butter\", \"Tomato\"],\n    \"instructions\": \"Cook all ingredients together\",\n    \"cookingTime\": 30\n  }\n}\n\n ```\n\n## Error Response\n\n``` json\n{\n  \"success\": false,\n  \"message\": \"Recipe not found\"\n}\n\n ```\n\n# Update Recipe API\n\n## Endpoint\n\nPUT /api/recipes/:id\n\n## Description\n\nThis API updates an existing recipe by ID.\n\n## Example URL\n\n``` bash\nPUT /api/recipes/6825abcd123456789\n\n ```\n\n## Request Body\n\n``` json\n{\n  \"title\": \"Updated Paneer Recipe\",\n  \"cookingTime\": 40\n}\n\n ```\n\n## Success Response\n\n``` json\n{\n  \"success\": true,\n  \"message\": \"Recipe updated successfully\",\n  \"data\": {\n    \"_id\": \"6825abcd123456789\",\n    \"title\": \"Updated Paneer Recipe\",\n    \"ingredients\": [\"Paneer\", \"Butter\", \"Tomato\"],\n    \"instructions\": \"Cook all ingredients together\",\n    \"cookingTime\": 40\n  }\n}\n\n ```\n\n## Error Response\n\n``` json\n{\n  \"success\": false,\n  \"message\": \"Recipe not found\"\n}\n\n ```\n\n# Delete Recipe API\n\n## Endpoint\n\nDELETE /api/recipes/:id\n\n## Description\n\nThis API deletes a recipe from MongoDB using its ID.\n\n## Example URL\n\n``` bash\nDELETE /api/recipes/6825abcd123456789\n\n ```\n\n## Success Response\n\n``` json\n{\n  \"success\": true,\n  \"message\": \"Recipe deleted successfully\"\n}\n\n ```\n\n## Error Response\n\n``` json\n{\n  \"success\": false,\n  \"message\": \"Recipe not found\"\n}\n\n ```",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "24786971",
+    "_collection_link": "https://go.postman.co/collection/24786971-8a83652c-8204-44de-8ed2-65a8f5eae029?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "CreateRecipes",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\"title\": \"Parathe paneer \",\n\"ingredients\": [\"paneer\", \"wheat\",\"masala\"],\n\"instructions\":\"Normal food\",\n\"cookingTime\":30,\n\"category\": \"Dinner\",\n\"isVeg\": true\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://recipesapp-tlhz.onrender.com/api/recipes",
+          "protocol": "https",
+          "host": [
+            "recipesapp-tlhz",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "recipes"
+          ]
+        },
+        "description": "This API creates a new recipe and stores it in MongoDB."
+      },
+      "response": [
+        {
+          "name": "CreateRecipes",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\"title\": \"Parathe paneer \",\n\"ingredients\": [\"paneer\", \"wheat\",\"masala\"],\n\"instructions\":\"Normal food\",\n\"cookingTime\":30,\n\"category\": \"Dinner\",\n\"isVeg\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://recipesapp-tlhz.onrender.com/api/recipes",
+              "protocol": "https",
+              "host": [
+                "recipesapp-tlhz",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "recipes"
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        }
+      ]
+    },
+    {
+      "name": "getAllRecpies",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://recipesapp-tlhz.onrender.com/api/recipes",
+          "protocol": "https",
+          "host": [
+            "recipesapp-tlhz",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "recipes"
+          ]
+        },
+        "description": "This API retrieves all recipes stored in MongoDB."
+      },
+      "response": [
+        {
+          "name": "getAllRecpies",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://recipesapp-tlhz.onrender.com/api/recipes",
+              "protocol": "https",
+              "host": [
+                "recipesapp-tlhz",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "recipes"
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        }
+      ]
+    },
+    {
+      "name": "getRecipeById",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://recipesapp-tlhz.onrender.com/api/recipes/6a04ae9e22f1f675162fd643",
+          "protocol": "https",
+          "host": [
+            "recipesapp-tlhz",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "recipes",
+            "6a04ae9e22f1f675162fd643"
+          ]
+        },
+        "description": "This API retrieves a single recipe using its MongoDB ObjectId."
+      },
+      "response": [
+        {
+          "name": "getRecipeById",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://recipesapp-tlhz.onrender.com/api/recipes/6a04ae9e22f1f675162fd643",
+              "protocol": "https",
+              "host": [
+                "recipesapp-tlhz",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "6a04ae9e22f1f675162fd643"
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        }
+      ]
+    },
+    {
+      "name": "updateRecipe",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\"title\": \"Parathe paneer \",\n\"ingredients\": [\"paneer\",\"wheat\",\"masala\",\"ghee\"],\n\"instructions\":\"Normal food\",\n\"cookingTime\":32,\n\"category\": \"Dinner\",\n\"isVeg\": true\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://recipesapp-tlhz.onrender.com/api/recipes/6a056ceec48109c389de4d4d",
+          "protocol": "https",
+          "host": [
+            "recipesapp-tlhz",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "recipes",
+            "6a056ceec48109c389de4d4d"
+          ]
+        },
+        "description": "This API updates an existing recipe by ID."
+      },
+      "response": []
+    },
+    {
+      "name": "deleteRecipe",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "https://recipesapp-tlhz.onrender.com/api/recipes/6a04ae9e22f1f675162fd643",
+          "protocol": "https",
+          "host": [
+            "recipesapp-tlhz",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "recipes",
+            "6a04ae9e22f1f675162fd643"
+          ]
+        },
+        "description": "This API deletes a recipe from MongoDB using its ID."
+      },
+      "response": []
+    }
+  ]
+}
