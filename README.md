@@ -15,34 +15,211 @@ A REST API application for managing recipes using Node.js, Express.js, and Mongo
 - MongoDB
 - Mongoose
 
-🌐 API Base URL
-http://localhost:3000/api/recipes
+📬 Postman Documentation
+
+🌐 API Base URL 
+https://recipesapp-tlhz.onrender.com/api/recipes
 
 📮 API Endpoints
 Method	Endpoint	Description
 POST	/api/recipes	Create Recipe
 GET	/api/recipes	Get All Recipes
-GET	/api/recipes/	Get Recipe By ID
-PUT	/api/recipes/	Update Recipe
-DELETE	/api/recipes/	Delete Recipe
-📬 Postman Documentation
+GET	api/recipes/:id	Get Recipe By ID
+PUT	/api/recipes/:id	Update Recipe
+DELETE	/api/recipes/:id	Delete Recipe
 
-Postman collection file is included in the project:
+Create Recipe API
+Endpoint
+POST /api/recipes
+Description
+This API creates a new recipe and stores it in MongoDB.
 
-Recipes API.postman_collection.json
-❌ Error Handling
+Request Body
 
-The application includes:
+JSON
 
-Validation errors
-404 handling
-Server error handling
-MongoDB error handling
-✅ Features Implemented
-MVC Architecture
-CRUD Operations
-MongoDB Integration
-REST API
-Validation
-Error Handling
-Postman Documentation
+{
+  "title": "Paneer Butter Masala",
+  "ingredients": ["Paneer", "Butter", "Tomato"],
+  "instructions": "Cook all ingredients together",
+  "cookingTime": 30
+}
+
+
+Success Response
+
+
+JSON
+
+{
+  "success": true,
+  "message": "Recipe created successfully",
+  "data": {
+    "_id": "6825abcd123456789",
+    "title": "Paneer Butter Masala",
+    "ingredients": ["Paneer", "Butter", "Tomato"],
+    "instructions": "Cook all ingredients together",
+    "cookingTime": 30
+  }
+}
+
+Error Response
+
+JSON
+
+{
+  "success": false,
+  "message": "Recipe title is required"
+}
+
+
+Get All Recipes API
+Endpoint
+GET /api/recipes
+Description
+This API retrieves all recipes stored in MongoDB.
+Success Response
+
+JSON
+{
+  "success": true,
+  "count": 2,
+  "data": [
+    {
+      "_id": "6825abcd123456789",
+      "title": "Paneer Butter Masala",
+      "ingredients": ["Paneer", "Butter", "Tomato"],
+      "instructions": "Cook all ingredients together",
+      "cookingTime": 30
+    },
+    {
+      "_id": "6825efgh987654321",
+      "title": "Veg Biryani",
+      "ingredients": ["Rice", "Vegetables", "Spices"],
+      "instructions": "Cook rice with vegetables and spices",
+      "cookingTime": 45
+    }
+  ]
+}
+
+
+Error Response
+
+JSON
+{
+  "success": false,
+  "message": "Internal server error"
+}
+
+Get Recipe By ID API
+Endpoint
+GET /api/recipes/:id
+Description
+This API retrieves a single recipe using its MongoDB ObjectId.
+Example URL
+
+
+Bash
+
+GET /api/recipes/6825abcd123456789
+
+Success Response
+
+JSON
+{
+  "success": true,
+  "data": {
+    "_id": "6825abcd123456789",
+    "title": "Paneer Butter Masala",
+    "ingredients": ["Paneer", "Butter", "Tomato"],
+    "instructions": "Cook all ingredients together",
+    "cookingTime": 30
+  }
+}
+
+Error Response
+
+JSON
+
+{
+  "success": false,
+  "message": "Recipe not found"
+}
+
+Update Recipe API
+Endpoint
+PUT /api/recipes/:id
+Description
+This API updates an existing recipe by ID.
+Example URL
+
+
+Bash
+
+PUT /api/recipes/6825abcd123456789
+
+Request Body
+
+JSON
+
+{
+  "title": "Updated Paneer Recipe",
+  "cookingTime": 40
+}
+
+Success Response
+
+JSON
+
+{
+  "success": true,
+  "message": "Recipe updated successfully",
+  "data": {
+    "_id": "6825abcd123456789",
+    "title": "Updated Paneer Recipe",
+    "ingredients": ["Paneer", "Butter", "Tomato"],
+    "instructions": "Cook all ingredients together",
+    "cookingTime": 40
+  }
+}
+
+
+Error Response
+
+JSON
+
+{
+  "success": false,
+  "message": "Recipe not found"
+}
+
+Delete Recipe API
+Endpoint
+DELETE /api/recipes/:id
+
+Description
+This API deletes a recipe from MongoDB using its ID.
+Example URL
+
+
+Bash
+
+DELETE /api/recipes/6825abcd123456789
+
+Success Response
+
+JSON
+
+{
+  "success": true,
+  "message": "Recipe deleted successfully"
+}
+
+Error Response
+
+JSON
+{
+  "success": false,
+  "message": "Recipe not found"
+}
+
