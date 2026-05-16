@@ -18,19 +18,13 @@ A REST API application for managing recipes using Node.js, Express.js, and Mongo
 📬 Postman Documentation
 
 🌐 API Base URL 
-https://recipesapp-tlhz.onrender.com/api/recipes
+https://recipesapp-tlhz.onrender.com/
+
+1.Create Recipe API
 
 📮 API Endpoints
-Method	Endpoint	Description
-POST	/api/recipes	Create Recipe
-GET	/api/recipes	Get All Recipes
-GET	api/recipes/:id	Get Recipe By ID
-PUT	/api/recipes/:id	Update Recipe
-DELETE	/api/recipes/:id	Delete Recipe
+ POST /api/recipes
 
-Create Recipe API
-Endpoint
-POST /api/recipes
 Description
 This API creates a new recipe and stores it in MongoDB.
 
@@ -47,7 +41,6 @@ JSON
 
 
 Success Response
-
 
 JSON
 
@@ -73,7 +66,7 @@ JSON
 }
 
 
-Get All Recipes API
+2.Get All Recipes API
 Endpoint
 GET /api/recipes
 Description
@@ -111,14 +104,14 @@ JSON
   "message": "Internal server error"
 }
 
-Get Recipe By ID API
-Endpoint
+3.Get Recipe By ID API
+
+📮 API Endpoints
 GET /api/recipes/:id
 Description
 This API retrieves a single recipe using its MongoDB ObjectId.
+
 Example URL
-
-
 Bash
 
 GET /api/recipes/6825abcd123456789
@@ -140,19 +133,17 @@ JSON
 Error Response
 
 JSON
-
 {
   "success": false,
   "message": "Recipe not found"
 }
 
-Update Recipe API
-Endpoint
+4.Update Recipe API
+📮 API Endpoints
 PUT /api/recipes/:id
 Description
 This API updates an existing recipe by ID.
 Example URL
-
 
 Bash
 
@@ -183,7 +174,6 @@ JSON
   }
 }
 
-
 Error Response
 
 JSON
@@ -193,14 +183,14 @@ JSON
   "message": "Recipe not found"
 }
 
-Delete Recipe API
-Endpoint
+5.Delete Recipe API
+
+📮 API Endpoints
 DELETE /api/recipes/:id
 
 Description
 This API deletes a recipe from MongoDB using its ID.
 Example URL
-
 
 Bash
 
@@ -209,7 +199,6 @@ DELETE /api/recipes/6825abcd123456789
 Success Response
 
 JSON
-
 {
   "success": true,
   "message": "Recipe deleted successfully"
